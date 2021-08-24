@@ -17,6 +17,8 @@
 //********** 指令存储器 有关的宏定义
 `define inst_addr_bus 31:0 // 指令地址线宽度
 `define inst_bus 31:0 // 传递指令的数据线宽度
+`define op_bus 4:0 // 指令中的操作码
+
 
 //********** 寄存器有关宏定义
 `define reg_addr_bus 4:0 // 寄存器地址线宽度
