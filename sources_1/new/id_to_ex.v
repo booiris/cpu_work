@@ -5,6 +5,34 @@
 
 
 module id_to_ex(
+         input wire clk,
+         input wire rst,
+         input wire[`reg_bus] input_1,
+         input wire[`reg_bus] input_2,
+         input wire write_enable_i,
+         input wire[`reg_addr_bus] write_addr_i,
 
-    );
+         output reg[`reg_addr_bus] write_addr_o,
+         output reg[`reg_bus] output_1,
+         output reg[`reg_bus] output_2,
+         output reg write_enable_o
+       );
+
+always @(posedge clk)
+  begin
+    if(rst == `rst_enable)
+      begin
+        write_enable_o <= `false_v;
+        output_1 <= `zero_v;
+        output_2 <= `zero_v;
+      end
+    else
+      begin
+        write_enable_o <= write_enable_i;
+        output_1 <= input_1;
+        output_2 <= input_2;
+        write_addr_o <= write_addr_i;
+      end
+  end
+
 endmodule

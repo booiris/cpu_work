@@ -8,9 +8,11 @@ module reg_build(
          input wire rst,
 
          input wire[`reg_addr_bus] reg1_addr,
+         input wire reg1_read,
          output reg[`reg_bus] reg1_data,
 
          input wire[`reg_addr_bus] reg2_addr,
+         input wire reg2_read,
          output reg[`reg_bus] reg2_data,
 
          input wire we,
@@ -27,7 +29,7 @@ always @(*)
       begin
         reg1_data <= `zero_v;
       end
-    else if (reg1_addr == 5'h0)
+    else if (reg1_addr == 5'h0 || reg1_read == `false_v)
       begin
         reg1_data <= `zero_v;
       end
@@ -47,7 +49,7 @@ always @(*)
       begin
         reg2_data <= `zero_v;
       end
-    else if (reg1_addr == 5'h0)
+    else if (reg1_addr == 5'h0 || reg2_read == `false_v)
       begin
         reg2_data <= `zero_v;
       end

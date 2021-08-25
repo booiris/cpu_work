@@ -11,7 +11,13 @@
 `define chip_disable 1'b0       // 芯片禁止 使能信号为假
 
 //********** 指令宏定义
-`define exe_ori 6'b001101 // 指令 ori 的指令码
+`define exe_ori     6'b001101 // 指令 ori 的指令码
+`define exe_lui     6'b001111 
+`define exe_lw      6'b100011
+`define exe_sw      6'b101011
+`define exe_beq     6'b000100
+`define exe_j       6'b000010
+`define exe_addiu   6'b001001
 
 
 //********** 指令存储器 有关的宏定义
