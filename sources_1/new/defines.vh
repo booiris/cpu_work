@@ -10,15 +10,16 @@
 `define chip_enable 1'b1        // 芯片有效 使能信号为真
 `define chip_disable 1'b0       // 芯片禁止 使能信号为假
 
-//********** 指令宏定义
-`define exe_ori     6'b001101 // 指令 ori 的指令码
-`define exe_lui     6'b001111 
-`define exe_lw      6'b100011
-`define exe_sw      6'b101011
-`define exe_beq     6'b000100
-`define exe_j       6'b000010
-`define exe_addiu   6'b001001
+//********** 译码阶段指令宏定义
+`define id_lui     6'b001111 
+`define id_lw      6'b100011
+`define id_sw      6'b101011
+`define id_beq     6'b000100
+`define id_j       6'b000010
+`define id_addiu   6'b001001
 
+//********* 执行阶段指令宏定义
+`define exe_addiu   32'h00000001
 
 //********** 指令存储器 有关的宏定义
 `define inst_addr_bus 31:0 // 指令地址线宽度

@@ -1,5 +1,5 @@
 `timescale 1ns / 1ps
-`include "defines.v"
+`include "defines.vh"
 
 // 本模块为译码过程
 
@@ -17,7 +17,8 @@ module id(
          output reg[`reg_addr_bus] write_addr_o,
          output reg write_enable,
          output reg reg1_read_o,
-         output reg reg2_read_o
+         output reg reg2_read_o,
+         output reg[`reg_bus] inst_op
        );
 
 reg[`reg_bus] imm;
@@ -32,6 +33,7 @@ always @(*)
         reg1_read_o <= `false_v;
         reg2_read_o <= `false_v;
         write_enable <= `false_v;
+        inst_op <= `zero_v;
       end
     else
       begin
@@ -41,6 +43,7 @@ always @(*)
         case(op)
           `exe_addiu:
             begin
+              inst_op <= 32'h00000001;
               imm <= {16'h0,inst[15:0]};
               reg1_read_o <= `true_v;
               write_enable <= `true_v;

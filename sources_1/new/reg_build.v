@@ -1,5 +1,5 @@
 `timescale 1ns / 1ps
-`include "defines.v"
+`include "defines.vh"
 
 // 本模块为 mips 中 32个寄存器的实现
 
@@ -17,7 +17,7 @@ module reg_build(
 
          input wire we,
          input wire[`reg_addr_bus] write_addr,
-         output reg[`reg_bus] write_data
+         input wire[`reg_bus] write_data
 
        );
 

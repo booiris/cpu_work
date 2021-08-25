@@ -1,5 +1,5 @@
 `timescale 1ns / 1ps
-`include "defines.v"
+`include "defines.vh"
 
 
 // 本模块为取指阶段到译码阶段传递指令的过程
