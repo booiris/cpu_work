@@ -13,6 +13,7 @@ initial
   $readmemh("data.mem", inst_mem);
 
 reg[4:0] i;
+reg[`inst_bus] temp;
 
 always @(*)
   begin
@@ -24,7 +25,11 @@ always @(*)
       begin
         // for (i=0;i<=7;i=i+1)
         //   $display("%h",inst_mem[i]);
-        inst<= inst_mem[15];
+        temp = addr >> 2;
+        // $display("%d",addr);
+        // $display("%d",temp);
+        inst<= inst_mem[temp];
+        // $display("%h",inst);
       end
   end
 

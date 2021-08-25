@@ -31,7 +31,10 @@ always @(*)
             begin
               ans <= value_1+value_2;
             end
-
+          `exe_add:
+            begin
+              ans <= value_1+value_2;
+            end
           default:
             begin
               ans<=`zero_v;

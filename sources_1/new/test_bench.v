@@ -19,7 +19,7 @@ initial
 initial
   begin
     rst = `rst_enable;
-    #195 rst = `rst_disable;
+    #20 rst = `rst_disable;
     #1000 $stop;
   end
 

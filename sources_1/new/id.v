@@ -41,13 +41,28 @@ always @(*)
         reg2_read_o <= `false_v;
         write_enable <= `false_v;
         case(op)
-          `exe_addiu:
+          `id_r_type:
+            begin
+              case (func)
+                `id_add:
+                  begin
+                    inst_op <= 32'h00000002;
+                    reg1_read_o <= `true_v;
+                    reg2_read_o <= `true_v;
+                    write_enable <= `true_v;
+                    write_addr_o <= inst[15:11];
+                    reg1_addr_o <= inst[25:21];
+                    reg2_addr_o <= inst[20:16];
+                  end
+              endcase
+            end
+          `id_addiu:
             begin
               inst_op <= 32'h00000001;
               imm <= {16'h0,inst[15:0]};
               reg1_read_o <= `true_v;
               write_enable <= `true_v;
-              write_addr_o <= inst[20:15];
+              write_addr_o <= inst[20:16];
               reg1_addr_o <= inst[25:21];
             end
           default:

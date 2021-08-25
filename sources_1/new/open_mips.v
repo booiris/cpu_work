@@ -64,8 +64,10 @@ pc_reg pc_reg0(
          .clk(clk),
          .rst(rst),
          .pc(pc),
-         .ce(rom_ce_o)
+         .ce(rom_ce)
        );
+
+assign rom_addr_o = pc;
 
 if_to_id if_to_id0(
            .clk(clk),

@@ -17,9 +17,12 @@
 `define id_beq     6'b000100
 `define id_j       6'b000010
 `define id_addiu   6'b001001
+`define id_r_type  6'b000000
+`define id_add     6'b100000 
 
 //********* 执行阶段指令宏定义
 `define exe_addiu   32'h00000001
+`define exe_add     32'h00000002
 
 //********** 指令存储器 有关的宏定义
 `define inst_addr_bus 31:0 // 指令地址线宽度
